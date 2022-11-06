@@ -188,6 +188,9 @@ int main()
     }
     else
         cmdline = "panic=0 clocksource=tsc consoleblank=0 drm.debug=0 drm.edid_firmware=edid/my_edid.bin";
+// for my ps4 pro CUH70XX i use this cmdline with CUH10XX & CUH11XX is better you use the cmdline from ps3itateam or add it with bootargs.txt 
+
+//panic=0 clocksource=tsc console=tty0 console=ttyS0,115200n8 console=uart8250,mmio32,0xd0340000 video=HDMI-A-1:1920x1080-24@60 consoleblank=0 net.ifnames=0 drm.debug=0 amdgpu.dpm=0";
 
     L("vram.txt", &vramstr, &vramstr_size, 0);
     if(vramstr && vramstr_size)
