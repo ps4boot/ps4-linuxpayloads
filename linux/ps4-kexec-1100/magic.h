@@ -301,16 +301,16 @@
 #define kern_off_set_cu_power_gate 0x4DE770
 #define kern_off_pstate_before_shutdown 0x29A970
 
-#elif defined ps4_11_00
+#elif defined PS4_11_00
 #define kern_off_printf	0x2fcbd0 //mira
 #define kern_off_snprintf 0x2fced0 //mira
 #define kern_off_copyin	0x2ddfe0 //mira
 #define kern_off_copyout 0x2ddef0 //mira
 #define kern_off_copyinstr 0x2de490
 #define kern_off_kmem_alloc_contig 0x22f8d0
-#define kern_off_kmem_free 0x1a43e0 //mira
+#define kern_off_kmem_free 0x245fe0
 #define kern_off_pmap_extract 0x114290
-#define kern_off_pmap_protect 0x11548b
+#define kern_off_pmap_protect 0x115430
 #define kern_off_sched_pin 0x2bb9b0
 #define kern_off_sched_unpin 0x2bb9d0
 #define kern_off_smp_rendezvous	0x1342c0
@@ -333,5 +333,5 @@
 #define kern_off_set_pstate 0x4c8ce0
 #define kern_off_update_vddnp 0x4b10a0
 #define kern_off_set_cu_power_gate 0x4b14b0
-#define kern_off_pstate_before_shutdown 0x19864f
+#define kern_off_pstate_before_shutdown 0x198650
 #endif
