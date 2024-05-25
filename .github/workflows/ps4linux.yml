@@ -1,0 +1,26 @@
+name: PS4 Linux Payload
+
+on: [ push, pull_request ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@main
+    - name: make linux
+      working-directory: linux
+      run: make
+    - name: make linux-pro
+      working-directory: linux-pro
+      run: make
+    - name: zip
+      run: zip ps4linux.zip ./*/*.bin
+    - name: release
+      if: github.event_name == 'push'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: gh release create 1.0${{ GITHUB.RUN_NUMBER }} ps4linux.zip --target ${{ GITHUB.SHA }} -t 1.0${{ GITHUB.RUN_NUMBER }}
