@@ -1,7 +1,7 @@
 #include <sys/types.h>
 #include <stddef.h>
 #include <unistd.h>
-#include <fcntl.h>
+#include <sys/fcntl.h>
 #include <sys/mman.h>
 #include <signal.h>
 #include <sys/thr.h>
