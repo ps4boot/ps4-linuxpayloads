@@ -10,6 +10,8 @@ linux-pro for Pro Model
 Supported versions are:
 - FW 5.00
 - FW 6.72
+- FW 7.02
+- FW 7.50 / 7.51 / 7.55
 - FW 9.00
 - FW 9.03 / 9.04 - Coming Soon
 - FW 9.50 / 9.51 / 9.60
@@ -21,6 +23,7 @@ Special Thanks For Help With Offsets:
 - [crashniels](https://github.com/crashniels/ps4-linuxpayloads)
 - [EinTim23](https://github.com/EinTim23/PS4-Linux-Loader)
 - [BestPig](https://github.com/BestPig/)
+- [Nazky](https://github.com/Nazky/PS4Linux-Payloads)
 
 Values from running fifa23. 
 you can change it and test others but check the klog he gives you an error when he doesnt accept. 

@@ -23,6 +23,12 @@ asm("ps4kexec:\n.incbin \"ps4-kexec-950/kexec.bin\"\nps4kexec_end:\n");
 #elif defined(__9_00__)
 asm("ps4kexec:\n.incbin \"ps4-kexec-900/kexec.bin\"\nps4kexec_end:\n");
 #include "ps4-kexec-900/magic.h"
+#elif defined(__7_50__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-750/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-750/magic.h"
+#elif defined(__7_02__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-702/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-702/magic.h"
 #elif defined(__6_72__)
 asm("ps4kexec:\n.incbin \"ps4-kexec-672/kexec.bin\"\nps4kexec_end:\n");
 #include "ps4-kexec-672/magic.h"
