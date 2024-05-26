@@ -1,7 +1,7 @@
 #include <sys/types.h>
 #include <stddef.h>
 #include <unistd.h>
-#include <sys/fcntl.h>
+#include <fcntl.h>
 #include <sys/mman.h>
 #include <signal.h>
 #include <sys/thr.h>
@@ -11,6 +11,15 @@
 #if defined(__11_00__)
 asm("ps4kexec:\n.incbin \"ps4-kexec-1100/kexec.bin\"\nps4kexec_end:\n");
 #include "ps4-kexec-1100/magic.h"
+#elif defined(__10_50__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-1050/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-1050/magic.h"
+#elif defined(__10_00__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-1000/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-1000/magic.h"
+#elif defined(__9_50__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-950/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-950/magic.h"
 #elif defined(__9_00__)
 asm("ps4kexec:\n.incbin \"ps4-kexec-900/kexec.bin\"\nps4kexec_end:\n");
 #include "ps4-kexec-900/magic.h"

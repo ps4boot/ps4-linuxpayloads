@@ -7,7 +7,22 @@ https://github.com/sleirsgoevy/ps4jb-payloads
 linux for Phat Model
 linux-pro for Pro Model
 
-values from running fifa23. 
+Supported versions are:
+- FW 5.00
+- FW 6.72
+- FW 9.00
+- FW 9.03 / 9.04 - Coming Soon
+- FW 9.50 / 9.51 / 9.60
+- FW 10.00 / 10.01
+- FW 10.50 / 10.70 / 10.71
+- FW 11.00
+
+Special Thanks For Help With Offsets:
+- [crashniels](https://github.com/crashniels/ps4-linuxpayloads)
+- [EinTim23](https://github.com/EinTim23/PS4-Linux-Loader)
+- [BestPig](https://github.com/BestPig/)
+
+Values from running fifa23. 
 you can change it and test others but check the klog he gives you an error when he doesnt accept. 
 
 linux-pro
