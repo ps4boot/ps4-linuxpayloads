@@ -8,7 +8,7 @@ linux for Phat Model
 linux-pro for Pro Model
 
 Supported versions are:
-- FW 5.00
+- FW 5.00 / 5.01 / 5.03 / 5.05
 - FW 6.70 / 6.71 / 6.72
 - FW 7.00 / 7.01 / 7.02
 - FW 7.50 / 7.51 / 7.55
