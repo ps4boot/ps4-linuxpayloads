@@ -1,4 +1,4 @@
-# ps4jb-payloads for ps4 phat+pro (aeolia/belize/baikal) 
+# ps4jb-payloads for ps4 phat+pro (baikal) 
 
 fork from sleirsgoevy thank you ! i do need only Linux Payloads
 https://github.com/sleirsgoevy/ps4jb-payloads
