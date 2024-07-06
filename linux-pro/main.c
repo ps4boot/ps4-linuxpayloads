@@ -1,16 +1,37 @@
 #include <sys/types.h>
 #include <stddef.h>
 #include <unistd.h>
-#include <fcntl.h>
+#include <sys/fcntl.h>
 #include <sys/mman.h>
 #include <signal.h>
 #include <sys/thr.h>
 #include <time.h>
 #include <ps4-offsets/kernel.h>
 
-#if defined(__9_00__)
+#if defined(__11_00__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-1100/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-1100/magic.h"
+#elif defined(__10_50__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-1050/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-1050/magic.h"
+#elif defined(__10_00__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-1000/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-1000/magic.h"
+#elif defined(__9_50__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-950/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-950/magic.h"
+#elif defined(__9_00__)
 asm("ps4kexec:\n.incbin \"ps4-kexec-900/kexec.bin\"\nps4kexec_end:\n");
 #include "ps4-kexec-900/magic.h"
+#elif defined(__9_03__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-903/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-903/magic.h"
+#elif defined(__7_50__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-750/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-750/magic.h"
+#elif defined(__7_02__)
+asm("ps4kexec:\n.incbin \"ps4-kexec-702/kexec.bin\"\nps4kexec_end:\n");
+#include "ps4-kexec-702/magic.h"
 #elif defined(__6_72__)
 asm("ps4kexec:\n.incbin \"ps4-kexec-672/kexec.bin\"\nps4kexec_end:\n");
 #include "ps4-kexec-672/magic.h"
@@ -40,10 +61,10 @@ void kernel_main()
     asm volatile("cli\nmov %%cr0, %%rax\nbtc $16, %%rax\nmov %%rax, %%cr0":::"rax");
     *(char*)(kernel_base + kernel_patch_kmem_alloc_1) = 0x07;
     *(char*)(kernel_base + kernel_patch_kmem_alloc_2) = 0x07;
-    //set pstate before shutdown, needed for PS4 Pro console thank you rancido (ps3itateam) 
+    //set pstate before shutdown, needed for PS4 Pro console
     *(char*)(kernel_base + kern_off_pstate_before_shutdown) = 0x03;
     asm volatile("mov %%cr0, %%rax\nbts $16, %%rax\nmov %%rax, %%cr0\nsti":::"rax");
-        
+
     unsigned long long early_printf = kernel_base + kernel_offset_printf;
     unsigned long long kmem_alloc = kernel_base + kernel_offset_kmem_alloc;
     unsigned long long kernel_map = kernel_base + kernel_offset_kernel_map;
@@ -188,9 +209,9 @@ int main()
     }
     else
         cmdline = "panic=0 clocksource=tsc consoleblank=0 drm.debug=0 drm.edid_firmware=edid/my_edid.bin";
-// for my ps4 pro CUH70XX i use this cmdline with CUH10XX & CUH11XX is better you use the cmdline from ps3itateam or add it with bootargs.txt 
 
-//panic=0 clocksource=tsc console=tty0 console=ttyS0,115200n8 console=uart8250,mmio32,0xd0340000 video=HDMI-A-1:1920x1080-24@60 consoleblank=0 net.ifnames=0 drm.debug=0 amdgpu.dpm=0";
+    //panic=0 clocksource=tsc console=tty0 console=ttyS0,115200n8 console=uart8250,mmio32,0xd0340000 video=HDMI-A-1:1920x1080-24@60 consoleblank=0 net.ifnames=0 drm.debug=0 amdgpu.dpm=0";
+
 
     L("vram.txt", &vramstr, &vramstr_size, 0);
     if(vramstr && vramstr_size)
